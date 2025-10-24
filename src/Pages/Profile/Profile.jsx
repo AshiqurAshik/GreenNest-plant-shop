@@ -43,9 +43,9 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-green-50 px-4">
-      {/* Profile Card */}
+     
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-green-100">
-        {/* Left side: Big Image */}
+       
         <div className="md:w-1/2 bg-green-100 flex items-center justify-center p-8">
           {user.photoURL ? (
             <img
@@ -60,7 +60,7 @@ const Profile = () => {
           )}
         </div>
 
-        {/* Right side: Info */}
+       
         <div className="md:w-1/2 flex flex-col justify-center p-8 gap-6">
           <h1 className="text-3xl md:text-4xl font-bold text-green-800 text-center md:text-left">
             My Profile
@@ -81,7 +81,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* ✅ Modal */}
+      
       <dialog id="profile_modal" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box bg-white rounded-2xl shadow-lg border border-green-100">
           <h3 className="font-bold text-2xl text-green-700 mb-4 text-center">

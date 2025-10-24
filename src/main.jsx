@@ -15,7 +15,7 @@ import Register from './Pages/Register/Register.jsx';
 import AuthProvider from './Auth Provider/AuthProvider.jsx';
 import SinglePlant from './Components/Plant details/SinglePlant.jsx';
 import PrivateRoutes from './Private Route/PrivateRoutes.jsx';
-import About from './Pages/About/About.jsx';
+
 import ErrorPage from './Error/ErrorPage.jsx';
 
 const router = createBrowserRouter([

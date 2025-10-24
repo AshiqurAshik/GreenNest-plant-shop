@@ -3,7 +3,7 @@ import React from 'react';
 const PlantLoader = () => {
   return (
     <div className="flex flex-col items-center justify-center h-[300px]">
-      {/* Spinning potted plant icon */}
+      
       <svg
         className="animate-spin-slow h-16 w-16 text-green-500"
         xmlns="http://www.w3.org/2000/svg"

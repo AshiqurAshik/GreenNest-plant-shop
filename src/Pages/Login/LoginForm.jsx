@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Auth Provider/AuthContext';
 import { toast } from 'react-toastify';
@@ -6,14 +6,11 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../Firebase/Firebase.init';
 
 const LoginForm = () => {
-  const { SignInUser, googleSignIn } = React.useContext(AuthContext);
-
+  const { SignInUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-
   const [resetEmail, setResetEmail] = useState('');
 
-  // Handle Email/Password Login
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -29,7 +26,6 @@ const LoginForm = () => {
       });
   };
 
-  // Handle Google Sign-In
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
@@ -41,16 +37,23 @@ const LoginForm = () => {
       });
   };
 
-  // Handle Forgot Password
   const handleForgotPassword = () => {
     if (!resetEmail) {
       toast.error('Please enter your email to reset password.');
       return;
     }
 
-    sendPasswordResetEmail(auth, resetEmail)
+    const actionCodeSettings = {
+      url: window.location.origin + '/login',
+      handleCodeInApp: true,
+    };
+
+    sendPasswordResetEmail(auth, resetEmail, actionCodeSettings)
       .then(() => {
-        toast.success('Password reset email sent! Check your inbox.');
+        toast.success(
+          `Password reset email sent! Check your Gmail inbox for ${resetEmail}`
+        );
+        window.open('https://mail.google.com', '_blank');
       })
       .catch((error) => {
         toast.error(error.message);
@@ -60,7 +63,6 @@ const LoginForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
       <div className="w-full max-w-4xl flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden border border-green-100">
-        {/* Left Side (Welcome Section) */}
         <div className="lg:w-1/2 bg-green-600 text-white flex flex-col justify-center items-center p-10">
           <h1 className="text-3xl font-bold mb-4 text-center">
             Welcome to GreenNest 🌱
@@ -70,16 +72,12 @@ const LoginForm = () => {
             collection and book expert consultations.
           </p>
         </div>
-
-        {/* Right Side (Login Form) */}
         <div className="lg:w-1/2 flex justify-center items-center p-10">
           <div className="w-full max-w-sm">
             <h2 className="text-3xl font-bold text-green-800 mb-6 text-center">
               Login to Your Account
             </h2>
-
             <form onSubmit={handleLogin} className="space-y-5">
-              {/* Email Field */}
               <div>
                 <label className="block text-green-700 mb-1 font-medium">
                   Email
@@ -93,8 +91,6 @@ const LoginForm = () => {
                   onChange={(e) => setResetEmail(e.target.value)}
                 />
               </div>
-
-              {/* Password Field */}
               <div>
                 <label className="block text-green-700 mb-1 font-medium">
                   Password
@@ -107,8 +103,6 @@ const LoginForm = () => {
                   required
                 />
               </div>
-
-              {/* Forgot Password */}
               <div className="flex justify-between items-center text-sm">
                 <button
                   type="button"
@@ -118,16 +112,12 @@ const LoginForm = () => {
                   Forgot password?
                 </button>
               </div>
-
-              {/* Login Button */}
               <button
                 type="submit"
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg shadow-md transition"
               >
                 Login
               </button>
-
-              {/* Google Login Button */}
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
@@ -163,8 +153,6 @@ const LoginForm = () => {
                 Login with Google
               </button>
             </form>
-
-            {/* Register Link */}
             <p className="text-center text-sm text-gray-600 mt-6">
               Don’t have an account?{' '}
               <Link

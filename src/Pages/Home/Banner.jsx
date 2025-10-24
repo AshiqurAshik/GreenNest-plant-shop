@@ -60,7 +60,6 @@ const Banner = () => {
           ))}
         </Swiper>
 
-        {/* Navigation Arrows */}
         <button
           className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 focus:outline-none active:shadow-none"
           onClick={() => swiperRef.current.swiper.slidePrev()}

@@ -9,6 +9,7 @@ import Blog from './Blog';
 const Home = () => {
   return (
     <div>
+     
       <Banner></Banner>
       <Suspense fallback={<PlantLoader />}>
         <TopPlant></TopPlant>

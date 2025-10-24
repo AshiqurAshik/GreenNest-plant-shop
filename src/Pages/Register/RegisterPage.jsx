@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const RegisterPage = () => {
   const { createUser, addProfileInfo } = useContext(AuthContext);
 
-  // Separate validation function
+  
   const validatePassword = (password) => {
     if (password.length < 6) return 'Password must be at least 6 characters.';
     if (!/[A-Z]/.test(password))

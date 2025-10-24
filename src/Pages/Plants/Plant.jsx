@@ -7,19 +7,19 @@ const Plant = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-4">
-      {/* Page Title */}
+      
       <h2 className="text-4xl md:text-5xl font-extrabold text-center text-green-700 mb-10">
         All Indoor Plants
       </h2>
 
-      {/* Plant Grid */}
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {plants.map((plant) => (
           <div
             key={plant.plantId}
             className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
-            {/* Image */}
+           
             <div className="relative h-56 overflow-hidden">
               <img
                 src={plant.image}
@@ -28,7 +28,7 @@ const Plant = () => {
               />
             </div>
 
-            {/* Info */}
+           
             <div className="p-5 flex flex-col gap-2">
               <h3 className="text-xl font-bold text-gray-800">
                 {plant.plantName}
@@ -47,7 +47,7 @@ const Plant = () => {
                 </span>
               </div>
 
-              {/* Button */}
+             
               <NavLink
                 to={`/plant/${plant.plantId}`}
                 className="mt-3 text-center bg-green-600 hover:bg-green-700 text-white py-2 rounded-full font-semibold transition-all duration-300"

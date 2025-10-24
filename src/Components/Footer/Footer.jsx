@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-green-50 text-green-900 py-6 border-t border-green-200">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4">
-        {/* Logo */}
+      
         <NavLink
           to="/"
           className="flex items-center gap-2 text-2xl font-bold text-green-700 hover:text-green-800 transition duration-200"
@@ -37,7 +37,6 @@ const Footer = () => {
           </NavLink>
         </div>
 
-        {/* Social Links */}
         <div className="flex gap-4 text-xl">
           <a
             href="https://facebook.com"
