@@ -22,12 +22,7 @@ const Footer = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/about"
-            className="hover:text-green-600 transition duration-200"
-          >
-            About
-          </NavLink>
+
           <NavLink
             to="/plant"
             className="hover:text-green-600 transition duration-200"

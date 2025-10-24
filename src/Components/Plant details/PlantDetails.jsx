@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { plantPromise } from '../../Pages/Home/TopPlant';
+import ErrorPlant from '../../Error/ErrorPlant';
 
 const PlantDetails = () => {
   const plants = use(plantPromise);
@@ -14,7 +15,7 @@ const PlantDetails = () => {
   const plant = plants.find((p) => p.plantId === parseInt(id));
 
   if (!plant)
-    return <p className="text-center mt-10 text-red-500">Plant not found</p>;
+    return <ErrorPlant></ErrorPlant>;
 
   const handleSubmit = (e) => {
     e.preventDefault();

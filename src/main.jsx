@@ -34,24 +34,19 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PlantLoader></PlantLoader>}>
             <PrivateRoutes>
-          <Plant></Plant>
+              <Plant></Plant>
             </PrivateRoutes>
-            
           </Suspense>
         ),
       },
 
       {
         path: '/profile',
-        element:  <PrivateRoutes>
-          <Profile></Profile>
-            </PrivateRoutes>,
-      },
-      {
-        path: '/about',
-        element:  <PrivateRoutes>
-          <About></About>
-            </PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <Profile></Profile>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

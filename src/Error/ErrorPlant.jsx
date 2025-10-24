@@ -2,11 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 import errorImg from '../assets/error page.png';
 
-const ErrorPage = () => {
+const ErrorPlant = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center bg-white px-4">
-      <img src={errorImg} alt="Error 404" className="w-full max-w-lg mb-8" />
-      <h2 className="text-4xl font-bold text-green-700 mb-2">Page Not Found</h2>
+      <img
+        src={errorImg}
+        alt="Plant Not Found"
+        className="w-full max-w-lg "
+      />
+      <h2 className="text-4xl font-bold text-green-700 mb-2">
+        Plant Not Found
+      </h2>
 
       <Link
         to="/"
@@ -18,4 +24,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default ErrorPlant;

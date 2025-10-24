@@ -112,20 +112,7 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `transition duration-200 mr-2 text-lg font-semibold ${
-                  isActive
-                    ? 'text-green-700 border-b-2 border-green-700 pb-1'
-                    : 'text-gray-700 hover:text-green-700 hover:border-b-2 hover:border-green-500 pb-1'
-                }`
-              }
-              to="/about"
-            >
-              About
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               className={({ isActive }) =>
