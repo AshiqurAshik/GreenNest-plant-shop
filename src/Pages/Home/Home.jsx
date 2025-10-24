@@ -4,6 +4,7 @@ import TopPlant from './TopPlant';
 import PlantLoader from '../../Components/Loader/PlantLoader';
 import ExpertSec from './ExpertSec';
 import PlantCare from './PlantCare';
+import Blog from './Blog';
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <ExpertSec></ExpertSec>
       </Suspense>
       <PlantCare></PlantCare>
+      <Blog></Blog>
     </div>
   );
 };

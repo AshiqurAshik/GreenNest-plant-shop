@@ -13,11 +13,16 @@ import PlantDetails from './Components/Plant details/PlantDetails.jsx';
 import Login from './Pages/Login/Login.jsx';
 import Register from './Pages/Register/Register.jsx';
 import AuthProvider from './Auth Provider/AuthProvider.jsx';
+import SinglePlant from './Components/Plant details/SinglePlant.jsx';
+import PrivateRoutes from './Private Route/PrivateRoutes.jsx';
+import About from './Pages/About/About.jsx';
+import ErrorPage from './Error/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -28,14 +33,25 @@ const router = createBrowserRouter([
         path: '/plant',
         element: (
           <Suspense fallback={<PlantLoader></PlantLoader>}>
-            <Plant></Plant>
+            <PrivateRoutes>
+          <Plant></Plant>
+            </PrivateRoutes>
+            
           </Suspense>
         ),
       },
 
       {
         path: '/profile',
-        Component: Profile,
+        element:  <PrivateRoutes>
+          <Profile></Profile>
+            </PrivateRoutes>,
+      },
+      {
+        path: '/about',
+        element:  <PrivateRoutes>
+          <About></About>
+            </PrivateRoutes>,
       },
     ],
   },
@@ -44,7 +60,7 @@ const router = createBrowserRouter([
     path: '/plant/:id',
     element: (
       <Suspense fallback={<PlantLoader></PlantLoader>}>
-        <PlantDetails></PlantDetails>
+        <SinglePlant></SinglePlant>
       </Suspense>
     ),
   },

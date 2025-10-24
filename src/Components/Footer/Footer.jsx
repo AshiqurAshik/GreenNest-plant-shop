@@ -4,17 +4,42 @@ import { NavLink } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="bg-green-50  text-green-900 p-6 border-t border-green-200">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div className="bg-green-50 text-green-900 p-6 border-t border-green-200 flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-2">
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 text-2xl font-bold text-green-700 hover:text-green-800 transition duration-200"
-            >
-              <span className="text-green-500">🌿</span> GreenNest
-            </NavLink>
-          </div>
+    <footer className="bg-green-50 text-green-900 py-6 border-t border-green-200">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4">
+        {/* Logo */}
+        <NavLink
+          to="/"
+          className="flex items-center gap-2 text-2xl font-bold text-green-700 hover:text-green-800 transition duration-200"
+        >
+          <span className="text-green-500">🌿</span> GreenNest
+        </NavLink>
+
+        {/* Quick Links */}
+        <div className="flex gap-6 text-green-800 font-medium">
+          <NavLink
+            to="/"
+            className="hover:text-green-600 transition duration-200"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className="hover:text-green-600 transition duration-200"
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/plant"
+            className="hover:text-green-600 transition duration-200"
+          >
+            Plant
+          </NavLink>
+          <NavLink
+            to="/profile"
+            className="hover:text-green-600 transition duration-200"
+          >
+            Profile
+          </NavLink>
         </div>
 
         {/* Social Links */}
@@ -40,7 +65,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="mt-4 text-center text-sm text-green-800">
         &copy; {new Date().getFullYear()} - All rights reserved by GreenNest
       </div>

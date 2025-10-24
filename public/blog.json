@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "5 Easy Indoor Plants for Beginners",
+    "snippet": "Discover low-maintenance plants perfect for your home or office. Ideal for new plant parents.",
+    "image": "https://images.unsplash.com/photo-1582216499382-19ad312df5e9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8NSUyMEVhc3klMjBJbmRvb3IlMjBQbGFudHMlMjBmb3IlMjBCZWdpbm5lcnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    "link": "/blog/5-easy-indoor-plants"
+  },
+  {
+    "id": 2,
+    "title": "How to Repot Your Plants Like a Pro",
+    "snippet": "Learn step-by-step tips for repotting your plants to ensure healthy growth and vibrant leaves.",
+    "image": "https://images.unsplash.com/photo-1624861234534-b0f2c96204b2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEhvdyUyMHRvJTIwUmVwb3QlMjBZb3VyJTIwUGxhbnRzJTIwTGlrZSUyMGElMjBQcm98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    "link": "/blog/repotting-plants-guide"
+  },
+  {
+    "id": 3,
+    "title": "Seasonal Plant Care Tips",
+    "snippet": "Keep your plants thriving all year round with these essential seasonal care tips.",
+    "image": "https://images.unsplash.com/photo-1753187987252-8aed22dab9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFNlYXNvbmFsJTIwUGxhbnQlMjBDYXJlJTIwVGlwc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    "link": "/blog/seasonal-plant-care"
+  },
+  {
+    "id": 4,
+    "title": "Common Plant Diseases & How to Treat Them",
+    "snippet": "Identify and treat common plant diseases to keep your greenery healthy and vibrant.",
+    "image": "https://images.unsplash.com/photo-1719756085127-d1d5eabe53c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Q29tbW9uJTIwUGxhbnQlMjBEaXNlYXNlcyUyMCUyNiUyMEhvdyUyMHRvJTIwVHJlYXQlMjBUaGVtfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    "link": "/blog/plant-disease-tips"
+  }
+]

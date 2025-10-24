@@ -1,9 +1,21 @@
-import React, { use } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../Auth Provider/AuthContext';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterPage = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, addProfileInfo } = useContext(AuthContext);
+
+  // Separate validation function
+  const validatePassword = (password) => {
+    if (password.length < 6) return 'Password must be at least 6 characters.';
+    if (!/[A-Z]/.test(password))
+      return 'Password must contain an uppercase letter.';
+    if (!/[a-z]/.test(password))
+      return 'Password must contain a lowercase letter.';
+    return '';
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -12,12 +24,30 @@ const RegisterPage = () => {
     const photoURL = e.target.photoURL.value;
     const password = e.target.password.value;
 
+    const validationError = validatePassword(password);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
+        toast.success('User registered successfully!');
         console.log(result.user);
+
+        addProfileInfo(name, photoURL)
+          .then(() => {
+            toast.success('Profile updated successfully!');
+            console.log('Profile updated:', result.user);
+          })
+          .catch((err) => {
+            console.log('Profile update error:', err.message);
+            toast.error('Profile update failed!');
+          });
       })
-      .catch((error) => {
-        console.log(error.massage);
+      .catch((err) => {
+        console.log(err.message);
+        toast.error('Registration failed! Please check your email.');
       });
   };
 
@@ -98,6 +128,7 @@ const RegisterPage = () => {
           </p>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={2500} hideProgressBar />
     </div>
   );
 };

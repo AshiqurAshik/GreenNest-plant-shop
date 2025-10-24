@@ -1,9 +1,18 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Auth Provider/AuthContext';
+import { toast } from 'react-toastify';
+import {  sendPasswordResetEmail } from 'firebase/auth'; 
+import { auth } from '../../Firebase/Firebase.init';
 
 const LoginForm = () => {
-  const { SignInUser, googleSignIn } = use(AuthContext);
+  const { SignInUser, googleSignIn } = React.useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+  const [resetEmail, setResetEmail] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,20 +21,37 @@ const LoginForm = () => {
 
     SignInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        toast.success('User logged in successfully!');
+        navigate(location.state?.from || '/');
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error('Login failed! Please check your email and password.');
       });
   };
 
-  const handleGooleSignIn = () => {
+  const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        toast.success('Logged in with Google successfully!');
+        navigate(location.state?.from || '/');
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error('Google Sign-In failed. Please try again.');
+      });
+  };
+
+  const handleForgotPassword = () => {
+    if (!resetEmail) {
+      toast.error('Please enter your email to reset password.');
+      return;
+    }
+
+    sendPasswordResetEmail(auth, resetEmail)
+      .then(() => {
+        toast.success('Password reset email sent! Check your inbox.');
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
 
@@ -59,6 +85,7 @@ const LoginForm = () => {
                   placeholder="Enter your email"
                   className="w-full px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                   required
+                  onChange={(e) => setResetEmail(e.target.value)} // for reset
                 />
               </div>
 
@@ -75,10 +102,14 @@ const LoginForm = () => {
                 />
               </div>
 
-              <div className="flex justify-end text-sm">
-                <a href="#" className="text-green-600 hover:underline">
+              <div className="flex justify-between items-center text-sm">
+                <button
+                  type="button"
+                  onClick={handleForgotPassword}
+                  className="text-green-600 hover:underline"
+                >
                   Forgot password?
-                </a>
+                </button>
               </div>
 
               <button
@@ -90,36 +121,10 @@ const LoginForm = () => {
 
               <button
                 type="button"
-                onClick={handleGooleSignIn}
+                onClick={handleGoogleSignIn}
                 className="w-full flex items-center justify-center gap-2 bg-white text-black border border-[#e5e5e5] py-2 rounded-lg mt-3 hover:bg-gray-100 transition"
               >
-                <svg
-                  aria-label="Google logo"
-                  width="16"
-                  height="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <g>
-                    <path d="m0 0H512V512H0" fill="#fff"></path>
-                    <path
-                      fill="#34a853"
-                      d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-                    ></path>
-                    <path
-                      fill="#4285f4"
-                      d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-                    ></path>
-                    <path
-                      fill="#fbbc02"
-                      d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-                    ></path>
-                    <path
-                      fill="#ea4335"
-                      d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-                    ></path>
-                  </g>
-                </svg>
+                {/* Google SVG */}
                 Login with Google
               </button>
             </form>
