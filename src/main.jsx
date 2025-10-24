@@ -55,7 +55,9 @@ const router = createBrowserRouter([
     path: '/plant/:id',
     element: (
       <Suspense fallback={<PlantLoader></PlantLoader>}>
-        <SinglePlant></SinglePlant>
+        <PrivateRoutes>
+          <SinglePlant></SinglePlant>
+        </PrivateRoutes>
       </Suspense>
     ),
   },
