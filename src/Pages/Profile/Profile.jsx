@@ -7,7 +7,6 @@ const Profile = () => {
   const { addProfileInfo, user } = useContext(AuthContext);
 
   const handleUpdate = (e) => {
-    e.preventDefault();
     const name = e.target.name.value;
     const photoURL = e.target.photoURL.value;
 

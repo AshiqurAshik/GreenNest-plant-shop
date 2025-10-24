@@ -33,15 +33,15 @@ const RegisterPage = () => {
     createUser(email, password)
       .then((result) => {
         toast.success('User registered successfully!');
-        console.log(result.user);
+   
 
         addProfileInfo(name, photoURL)
           .then(() => {
             toast.success('Profile updated successfully!');
-            console.log('Profile updated:', result.user);
+            
           })
           .catch((err) => {
-            console.log('Profile update error:', err.message);
+           
             toast.error('Profile update failed!');
           });
       })
