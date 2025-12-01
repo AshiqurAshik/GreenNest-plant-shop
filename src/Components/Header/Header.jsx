@@ -46,12 +46,13 @@ const Header = () => {
             <NavLink to="/about" className={navClasses}>
               About Us
             </NavLink>
-            <NavLink to="/contact" className={navClasses}>
-              Contact
-            </NavLink>
             <NavLink to="/blog" className={navClasses}>
               Blog
             </NavLink>
+            <NavLink to="/contact" className={navClasses}>
+              Contact
+            </NavLink>
+
             {user && (
               <NavLink to="/profile" className={navClasses}>
                 Profile
@@ -159,13 +160,7 @@ const Header = () => {
           >
             About Us
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={navClasses}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contact
-          </NavLink>
+
           <NavLink
             to="/blog"
             className={navClasses}
@@ -173,6 +168,15 @@ const Header = () => {
           >
             Blog
           </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={navClasses}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </NavLink>
+
           {user && (
             <NavLink
               to="/profile"
