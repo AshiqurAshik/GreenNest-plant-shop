@@ -1,15 +1,18 @@
 import React, { useState, use } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { plantPromise } from '../../Pages/Home/TopPlant';
 import ErrorPlant from '../../Error/ErrorPlant';
 import { FaStar } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Auth Provider/AuthContext'; // make sure this path is correct
 
 const PlantDetails = () => {
   const plants = use(plantPromise);
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState('specs');
+  const { user } = useContext(AuthContext); // get logged-in user
 
   if (!plants)
     return (
@@ -19,11 +22,14 @@ const PlantDetails = () => {
     );
 
   const plant = plants.find((p) => p.plantId === parseInt(id));
-
   if (!plant) return <ErrorPlant />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!user) {
+      toast.error('You must be logged in to book!');
+      return;
+    }
     toast.success(`${plant.plantName} booked successfully!`);
     e.target.reset();
   };
@@ -83,23 +89,51 @@ const PlantDetails = () => {
             <h2 className="text-xl font-bold text-green-900">
               Book a Consultation
             </h2>
+
+            {!user && (
+              <p className="text-red-600 font-medium bg-red-50 p-3 rounded-lg shadow-inner border border-red-200">
+                Please{' '}
+                <Link to="/login" className="font-bold underline">
+                  log in
+                </Link>{' '}
+                to book this consultation.
+              </p>
+            )}
+
             <input
               type="text"
               name="name"
               placeholder="Your Name"
-              className="border border-green-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className={`border rounded-lg p-3 focus:outline-none focus:ring-2 ${
+                user
+                  ? 'border-green-300 focus:ring-green-500'
+                  : 'border-gray-300 bg-gray-50 text-gray-400 cursor-not-allowed'
+              }`}
               required
+              disabled={!user}
             />
+
             <input
               type="email"
               name="email"
               placeholder="Your Email"
-              className="border border-green-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className={`border rounded-lg p-3 focus:outline-none focus:ring-2 ${
+                user
+                  ? 'border-green-300 focus:ring-green-500'
+                  : 'border-gray-300 bg-gray-50 text-gray-400 cursor-not-allowed'
+              }`}
               required
+              disabled={!user}
             />
+
             <button
               type="submit"
-              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 w-fit"
+              className={`${
+                user
+                  ? 'bg-green-700 hover:bg-green-800 transition-transform transform hover:-translate-y-1'
+                  : 'bg-gray-400 cursor-not-allowed'
+              } text-white font-bold py-3 px-6 rounded-full shadow-lg w-fit`}
+              disabled={!user}
             >
               Book Now
             </button>
