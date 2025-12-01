@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
 
 const blogPromise = fetch('/blog.json')
   .then((res) => res.json())
   .catch((err) => console.error(err));
 
-const HomeBlogSection = () => {
+const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -14,23 +13,20 @@ const HomeBlogSection = () => {
     });
   }, []);
 
-  // Show only the first 4 blogs for preview
-  const previewBlogs = blogs.slice(0, 4);
-
   return (
     <div className="py-20 bg-gradient-to-b from-green-50 to-green-100">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 mb-4">
+        <h2 className="text-4xl  md:text-5xl font-extrabold text-green-900 mb-4">
           🌱 Our Blog
         </h2>
-        <p className="text-green-700 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="text-green-700 px-2 text-lg md:text-xl max-w-2xl mx-auto">
           Discover stories, guides, and insights about plant care, growth, and
           sustainability — written by plant lovers, for plant lovers.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6">
-        {previewBlogs.map((blog) => (
+        {blogs.map((blog) => (
           <div
             key={blog.id}
             className="bg-white rounded-3xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
@@ -44,23 +40,13 @@ const HomeBlogSection = () => {
               <h3 className="text-2xl font-semibold text-green-800 mb-3 hover:text-green-900 transition-colors duration-300">
                 {blog.title}
               </h3>
-              <p className="text-gray-700 mb-6 flex-grow">{blog.snippet}</p>
+              <p className="text-gray-700 flex-grow">{blog.snippet}</p>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* See All Blogs Button */}
-      <div className="flex justify-center mt-10">
-        <Link
-          to="/blog"
-          className="px-8 py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition duration-200"
-        >
-          See All Blogs
-        </Link>
       </div>
     </div>
   );
 };
 
-export default HomeBlogSection;
+export default Blog;

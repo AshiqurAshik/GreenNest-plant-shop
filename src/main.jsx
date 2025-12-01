@@ -17,6 +17,9 @@ import SinglePlant from './Components/Plant details/SinglePlant.jsx';
 import PrivateRoutes from './Private Route/PrivateRoutes.jsx';
 
 import ErrorPage from './Error/ErrorPage.jsx';
+import About from './Pages/About/About.jsx';
+import Contact from './Pages/Contact/Contact.jsx';
+import Blog from './Pages/Blog/Blog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,9 +36,7 @@ const router = createBrowserRouter([
         path: '/plant',
         element: (
           <Suspense fallback={<PlantLoader></PlantLoader>}>
-            <PrivateRoutes>
-              <Plant></Plant>
-            </PrivateRoutes>
+            <Plant></Plant>
           </Suspense>
         ),
       },
@@ -48,6 +49,21 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+
+      {
+        path: '/about',
+        Component: About,
+      },
+
+      {
+        path: '/contact',
+        Component: Contact,
+      },
+
+      {
+        path: '/blog',
+        Component: Blog,
+      },
     ],
   },
 
@@ -55,9 +71,7 @@ const router = createBrowserRouter([
     path: '/plant/:id',
     element: (
       <Suspense fallback={<PlantLoader></PlantLoader>}>
-        <PrivateRoutes>
-          <SinglePlant></SinglePlant>
-        </PrivateRoutes>
+        <SinglePlant></SinglePlant>
       </Suspense>
     ),
   },
@@ -71,6 +85,7 @@ const router = createBrowserRouter([
     path: '/register',
     Component: Register,
   },
+  {},
 ]);
 
 createRoot(document.getElementById('root')).render(

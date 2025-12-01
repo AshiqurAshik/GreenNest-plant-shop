@@ -26,5 +26,33 @@
     "snippet": "Identify and treat common plant diseases to keep your greenery healthy and vibrant.",
     "image": "https://images.unsplash.com/photo-1719756085127-d1d5eabe53c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Q29tbW9uJTIwUGxhbnQlMjBEaXNlYXNlcyUyMCUyNiUyMEhvdyUyMHRvJTIwVHJlYXQlMjBUaGVtfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
     "link": "/blog/plant-disease-tips"
+  },
+  {
+    "id": 5,
+    "title": "Top 10 Air-Purifying Plants for Your Home",
+    "snippet": "Enhance your indoor air quality and add a touch of green with these top air-purifying plants.",
+    "image": "https://images.unsplash.com/photo-1611788693662-dd4b16f07c22?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWlyLVB1cmlmeWluZyUyMFBsYW50c3xlbnwwfHwwfHx8MA%3D%3D",
+    "link": "/blog/air-purifying-plants"
+  },
+  {
+    "id": 6,
+    "title": "Creative DIY Planter Ideas",
+    "snippet": "Learn unique and stylish ways to repurpose containers for beautiful DIY planters.",
+    "image": "https://images.unsplash.com/photo-1715766911071-b1ad5af85da1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RElZJTIwUGxhbnRlcnxlbnwwfHwwfHx8MA%3D%3D",
+    "link": "/blog/diy-planter-ideas"
+  },
+  {
+    "id": 7,
+    "title": "Watering Tips for Different Plants",
+    "snippet": "Not all plants need the same amount of water. Learn how to water your plants correctly for healthy growth.",
+    "image": "https://images.unsplash.com/photo-1759422714268-0805b53525b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFdhdGVyaW5nJTIwVGlwc3xlbnwwfHwwfHx8MA%3D%3D",
+    "link": "/blog/watering-tips"
+  },
+  {
+    "id": 8,
+    "title": "Indoor vs Outdoor Plants: Which Should You Choose?",
+    "snippet": "Explore the differences between indoor and outdoor plants and find the best fit for your space and lifestyle.",
+    "image": "https://images.unsplash.com/photo-1758836929753-b20850cad2c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SW5kb29yJTIwdnMlMjBPdXRkb29yJTIwUGxhbnRzfGVufDB8fDB8fHww",
+    "link": "/blog/indoor-vs-outdoor-plants"
   }
 ]
